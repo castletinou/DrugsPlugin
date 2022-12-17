@@ -38,6 +38,23 @@ public class CommandDrugs implements CommandExecutor {
 					
 
 				}
+				
+				if (args[0].equalsIgnoreCase("kbstick")) {
+					
+					player.getInventory();
+					player.getInventory().addItem(new ItemStack(Material.STICK));
+					
+					ItemStack kb_stick = new ItemStack(Material.STICK);
+					ItemMeta customMeta = kb_stick.getItemMeta();
+					customMeta.setDisplayName("§c§k§oa§r §1§lKnockback Stick §c§k§oa§r");
+					customMeta.setLore(Arrays.asList("This stick makes ","kings and queens fall."));
+					customMeta.addEnchant(Enchantment.KNOCKBACK, 3, true);
+					customMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+					kb_stick.setItemMeta(customMeta);
+					player.getInventory().addItem(kb_stick);
+					
+					player.updateInventory();
+				}
 
 				return true;
 			}
