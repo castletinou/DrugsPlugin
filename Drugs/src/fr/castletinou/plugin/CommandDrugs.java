@@ -20,13 +20,12 @@ public class CommandDrugs implements CommandExecutor {
 		if (sender instanceof Player) {
 			if (args.length == 0 || args.length == 1) {
 				Player player = (Player) sender;
-				player.sendMessage("fezfezfzefze");
 				
 				if (args[0].equalsIgnoreCase("MIH")) {
 					ItemStack custompotion = new ItemStack(Material.POTION, 1);	
 					ItemMeta customM = custompotion.getItemMeta();
 					customM.setDisplayName("§9§kI§r§d§l MIH §r§9§kI");
-					customM.setLore(Arrays.asList("","§§lThis potion give you §b§lSpeed V during §a§l30 seconds"));
+					customM.setLore(Arrays.asList("","§lThis potion give you §b§lSpeed V during §a§l30 seconds"));
 					customM.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
 					customM.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 					custompotion.setItemMeta(customM);
@@ -37,6 +36,24 @@ public class CommandDrugs implements CommandExecutor {
 					player.updateInventory();
 					
 
+				}
+			
+				if (args[0].equalsIgnoreCase("kbstick")) {
+					
+					player.sendMessage("Gave §a[1]§r §c§l[Knockback Stick]§r to §bplayer§r.");
+					
+					player.getInventory();
+					
+					ItemStack kb_stick = new ItemStack(Material.STICK);
+					ItemMeta customMeta = kb_stick.getItemMeta();
+					customMeta.setDisplayName("§c§k§oa§r §1§lKnockback Stick §c§k§oa§r");
+					customMeta.setLore(Arrays.asList("This stick makes ","kings and queens fall."));
+					customMeta.addEnchant(Enchantment.KNOCKBACK, 3, true);
+					customMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+					kb_stick.setItemMeta(customMeta);
+					player.getInventory().addItem(kb_stick);
+					
+					player.updateInventory();
 				}
 
 				return true;
