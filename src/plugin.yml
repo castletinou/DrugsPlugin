@@ -1,0 +1,7 @@
+name: Drugs
+main: fr.castletinou.plugin.Main
+version: 1.0
+commands:
+  drugs:
+    description: Give potion custom
+    permission: drugs.use
