@@ -8,7 +8,7 @@ public class Main extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		System.out.println("[Drugs] Le plugin s'allume");
+		System.out.println("[Drugs] Le plugin s'allume !");
 		getCommand("drugs").setExecutor(new CommandDrugs());
 		getServer().getPluginManager().registerEvents(new MyListeners(), this);
 	}
