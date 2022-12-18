@@ -25,7 +25,7 @@ public class MyListeners implements Listener {
         }
         if (name == "§3§lSan Ku Kaï" && Enchantment.getEffects() != null) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 300, 2));
-            player.sendMessage("§l[Drugs] §cGiving 15 s of strength III !");
+            player.sendMessage("§l[Drugs] §cGiving 15s of strength III !");
         }
     }
 }
