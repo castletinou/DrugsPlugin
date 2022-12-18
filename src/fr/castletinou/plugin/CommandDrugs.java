@@ -67,6 +67,8 @@ public class CommandDrugs implements CommandExecutor {
 				inv.setItem(1, getItem(Material.POTION, "§9§kI§r§d§l MIH §r§9§kI", "", "§lThis potion give you §b§lSpeed V during §a§l30 seconds"));
 				inv.setItem(2, getItem(Material.GOLDEN_CARROT, "§2§lPrestinox", "", "§lThis potion give you §c§lStrength II, §b§lSpeedIII §5§o§land §a§lhasteII §5§o§lduring §d§l30 second"));
 				inv.setItem(3, getItem(Material.POTION, "§e§lLucky Drug", "", "§lThis potion give you a §a§lBonus§r §5§o§lor a §4§lMalus§r §5§o§lduring §a§l30 seconds"));
+				
+				player.openInventory(inv);
 			}
 
 			return true;
