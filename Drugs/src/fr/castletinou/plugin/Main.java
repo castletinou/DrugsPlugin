@@ -10,6 +10,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		System.out.println("[Drugs] Le plugin s'allume");
 		getCommand("drugs").setExecutor(new CommandDrugs());
+		getCommand("item").setExecutor(new CommandItem());
 		getServer().getPluginManager().registerEvents(new MyListeners(), this);
 	}
 	

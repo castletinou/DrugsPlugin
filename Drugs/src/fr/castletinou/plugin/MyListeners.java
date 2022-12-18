@@ -19,7 +19,7 @@ public class MyListeners implements Listener {
         String name = item.getItemMeta().getDisplayName();
         if (name == "§9§kI§r§d§l MIH §r§9§kI" && Enchantment.getEffects() != null) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 600, 4));
-            player.sendMessage("§l[Drugs] §bGiving 30s of speed ... Made in Heaven !");
+            player.sendMessage("§l[Drugs]§r §bGiving 30s of speed ... Made in Heaven !");
         }
     }
 }

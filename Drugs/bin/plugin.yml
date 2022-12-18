@@ -4,5 +4,8 @@ main: fr.castletinou.plugin.Main
 version: 1.0
 commands:
   drugs:
-    description: Give potion custom
+    description: Give custom potion
     permission: drugs.use
+  item:
+    description: Give custom item
+    permission: item.use
