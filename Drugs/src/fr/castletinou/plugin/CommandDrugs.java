@@ -37,12 +37,11 @@ public class CommandDrugs implements CommandExecutor {
 					
 
 				}
+
 			
 				if (args[0].equalsIgnoreCase("kbstick")) {
 					
 					player.sendMessage("Gave §a[1]§r §c§l[Knockback Stick]§r to §bplayer§r.");
-					
-					player.getInventory();
 					
 					ItemStack kb_stick = new ItemStack(Material.STICK);
 					ItemMeta customMeta = kb_stick.getItemMeta();
