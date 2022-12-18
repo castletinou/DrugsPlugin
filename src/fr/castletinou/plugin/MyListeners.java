@@ -33,7 +33,7 @@ public class MyListeners implements Listener {
 			
 			if (randint == 0) {
 				player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 600, 6));
-				player.sendMessage("§4§lBad Luck ...§r Gave you §0§lBlindness VI§r for §b30 seconds§r.");
+				player.sendMessage("§4§lBad Luck ...§r Gave you §8§lBlindness VI§r for §b30 seconds§r.");
 			}
 			
 			if (randint == 1) {
