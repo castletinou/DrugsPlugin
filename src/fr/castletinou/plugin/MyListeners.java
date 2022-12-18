@@ -35,5 +35,29 @@ public class MyListeners implements Listener {
             player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 600, 1));
             player.sendMessage("§l[Drugs] §aGiving 30 s of Strength II , SpeedIII and HasteII !");
         }
+        if (name == "§e§lLucky Drug" && Enchantment.getEffects() != null) {
+        	
+			int randint = (int)(Math.random() * (3 + 1));
+			
+			if (randint == 0) {
+				player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS ,600 ,6));
+				player.sendMessage("§4§lBad Luck ...§r Gave you §8§lBlindness VI§r for §b30 seconds§r.");
+			}
+			
+			if (randint == 1) {
+				player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION ,600 ,7));
+				player.sendMessage("§4§lBad Luck ...§r Gave you §2§lNausea VII§r for §b30 seconds§r.");
+			}
+			
+			if (randint == 2) {
+				player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST,600 ,5));
+				player.sendMessage("§a§lLucky !§r Gave you §c§lHealth Boost V§r for §b30 seconds§r.");
+			}
+			
+			if (randint == 3) {
+				player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,600 ,3));
+				player.sendMessage("§a§lLucky !§r Gave you §d§lRegeneration VI§r for §b30 seconds§r.");
+			}
+        }
     }
 }
