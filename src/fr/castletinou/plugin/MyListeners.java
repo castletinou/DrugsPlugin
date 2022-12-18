@@ -21,7 +21,7 @@ public class MyListeners implements Listener {
         
         if (name == "§9§kI§r§d§l MIH §r§9§kI" && Enchantment.getEffects() != null) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 600, 4));
-            player.sendMessage("§l[Drugs] §bGiving 30s of speed V ... Made in Heaven !");
+            player.sendMessage("§l[Drugs] §bGiving 30 s of speed V ... Made in Heaven !");
         }
         if (name == "§3§lSan Ku Kaï" && Enchantment.getEffects() != null) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 300, 2));
