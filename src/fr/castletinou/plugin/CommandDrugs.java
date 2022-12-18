@@ -29,18 +29,26 @@ public class CommandDrugs implements CommandExecutor {
 
 				player.updateInventory();
 			}
-			if (args[0].equalsIgnoreCase("Sankukai")) {
+			if (args[0].equalsIgnoreCase("sankukai")) {
 
 				player.getInventory().addItem(getItem(Material.POTION, "§3§lSan Ku Kaï", "", "§lThis potion give you §c§lStrength III during §a§l15 seconds"));;
 
 				player.updateInventory();
 			}
+			if (args[0].equalsIgnoreCase("prestinox")) {
+
+				player.getInventory().addItem(getItem(Material.GOLDEN_CARROT, "§2§lPrestinox", "", "§lThis potion give you §c§lStrength II, §b§lSpeedIII and §a§lhasteII §d§lduring 30 second"));;
+
+				player.updateInventory();
+			}
+			
+			
 			if (args[0].equalsIgnoreCase("admin")) {
 				
 				Inventory inv = Bukkit.createInventory(null, 9, "§8Drugs Menu");				
-				
-				inv.setItem(0, getItem(Material.POTION, "§3§lSan Ku Kaï", "", "§lThis potion give you §c§lStrength III during §a§l15 seconds"));
-				inv.setItem(1, getItem(Material.POTION, "§9§kI§r§d§l MIH §r§9§kI", "", "§lThis potion give you §b§lSpeed V during §a§l30 seconds"));
+				inv.setItem(2, getItem(Material.GOLDEN_CARROT, "§2§lPrestinox", "", "§lThis potion give you §c§lStrength II, §b§lSpeedIII §5§o§land §a§lhasteII §5§o§lduring §d§l30 second"));;
+				inv.setItem(0, getItem(Material.POTION, "§3§lSan Ku Kaï", "", "§lThis potion give you §c§lStrength III §5§o§lduring §a§l15 seconds"));
+				inv.setItem(1, getItem(Material.POTION, "§9§kI§r§d§l MIH §r§9§kI", "", "§lThis potion give you §b§lSpeed V §5§o§lduring §a§l30 seconds"));
 				player.openInventory(inv);
 				
 				
