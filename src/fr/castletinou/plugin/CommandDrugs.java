@@ -25,7 +25,7 @@ public class CommandDrugs implements CommandExecutor {
 			
 			if (args[0].equalsIgnoreCase("MIH")) {
 				
-				player.getInventory().addItem(getItem(Material.POTION, "§9§kI§r§d§l MIH §r§9§kI ", "", "§lThis potion give you §b§lSpeed V during §a§l30 seconds"));
+				player.getInventory().addItem(getItem(Material.POTION, "§9§kI§r§d§l MIH §r§9§kI", "", "§lThis potion give you §b§lSpeed V during §a§l30 seconds"));
 
 				player.updateInventory();
 			}
