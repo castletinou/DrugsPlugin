@@ -5,3 +5,6 @@ commands:
   drugs:
     description: Give potion custom
     permission: drugs.use
+    permission-message: You do not have permission :/
+    usage: §4/drugs <drugsName>
+    aliases: drug

@@ -17,32 +17,39 @@ public class CommandDrugs implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String msg, String[] args) {
 
-		if (sender instanceof Player) {
-			if (args.length == 0 || args.length == 1) {
-				Player player = (Player) sender;
-				player.sendMessage("fezfezfzefze");
-				
-				if (args[0].equalsIgnoreCase("MIH")) {
-					ItemStack custompotion = new ItemStack(Material.POTION, 1);	
-					ItemMeta customM = custompotion.getItemMeta();
-					customM.setDisplayName("§9§kI§r§d§l MIH §r§9§kI");
-					customM.setLore(Arrays.asList("","§§lThis potion give you §b§lSpeed V during §a§l30 seconds"));
-					customM.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
-					customM.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-					custompotion.setItemMeta(customM);
-					
-					player.getInventory().addItem(custompotion);
-					
-					
-					player.updateInventory();
-					
+		if (sender instanceof Player) {		
+			Player player = (Player) sender;
+			if (args.length < 1) return false;
+			if (args[0].equalsIgnoreCase("MIH")) {
+				ItemStack custompotion = new ItemStack(Material.POTION, 1);
+				ItemMeta customM = custompotion.getItemMeta();
+				customM.setDisplayName("§9§kI§r§d§l MIH §r§9§kI");
+				customM.setLore(Arrays.asList("", "§lThis potion give you §b§lSpeed V during §a§l30 seconds"));
+				customM.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
+				customM.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+				custompotion.setItemMeta(customM);
 
-				}
+				player.getInventory().addItem(custompotion);
 
-				return true;
+				player.updateInventory();
+			}
+			if (args[0].equalsIgnoreCase("Sankukai")) {
+				ItemStack custompotion = new ItemStack(Material.POTION, 1);
+				ItemMeta customM = custompotion.getItemMeta();
+				customM.setDisplayName("§3§lSan Ku Kaï");
+				customM.setLore(Arrays.asList("", "§lThis potion give you §c§lStrength III during §a§l15 seconds"));
+				customM.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
+				customM.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+				custompotion.setItemMeta(customM);
+
+				player.getInventory().addItem(custompotion);
+
+				player.updateInventory();
 			}
 
+			return true;
 		}
+
 		return false;
 	}
 
