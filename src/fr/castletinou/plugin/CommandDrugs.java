@@ -46,6 +46,20 @@ public class CommandDrugs implements CommandExecutor {
 
 				player.updateInventory();
 			}
+			
+			if (args[0].equalsIgnoreCase("LuckyDrug")) {
+				ItemStack custompotion = new ItemStack(Material.POTION, 1);
+				ItemMeta customMeta = custompotion.getItemMeta();
+				customMeta.setDisplayName("§e§lLucky Drug");
+				customMeta.setLore(Arrays.asList("","§lThis potion give you a §a§lBonus§r §5§o§lor a §4§lMalus§r §5§o§lduring §a§l30 seconds","§7§keffect§r §7(0:30)"));
+				customMeta.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
+				customMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+				custompotion.setItemMeta(customMeta);
+				
+				player.getInventory().addItem(custompotion);
+				
+				player.updateInventory();
+			}
 
 			return true;
 		}
