@@ -21,11 +21,19 @@ public class MyListeners implements Listener {
         
         if (name == "§9§kI§r§d§l MIH §r§9§kI" && Enchantment.getEffects() != null) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 600, 4));
-            player.sendMessage("§l[Drugs] §bGiving 30s of speed V ... Made in Heaven !");
+            player.sendMessage("§l[Drugs] §bGiving 30s of Speed V ... Made in Heaven !");
         }
+        
         if (name == "§3§lSan Ku Kaï" && Enchantment.getEffects() != null) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 300, 2));
-            player.sendMessage("§l[Drugs] §cGiving 15 s of strength III !");
+            player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 100, 2));
+            player.sendMessage("§l[Drugs] §cGiving 15 s of Strength III !");
+        }
+        if (name == "§2§lPrestinox" && Enchantment.getEffects() != null) {
+            player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 600, 1));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 600, 2));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 600, 1));
+            player.sendMessage("§l[Drugs] §aGiving 30 s of Strength II , SpeedIII and HasteII !");
         }
         if (name == "§e§lLucky Drug" && Enchantment.getEffects() != null) {
         	
