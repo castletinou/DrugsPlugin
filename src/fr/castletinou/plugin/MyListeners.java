@@ -50,13 +50,14 @@ public class MyListeners implements Listener {
 			}
 			
 			if (randint == 2) {
-				player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST,600 ,5));
-				player.sendMessage("§l[Drugs]§r §a§lLucky !§r Gave you §c§lHealth Boost V§r for §b30 seconds§r.");
+				player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST,600 ,4));
+				player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 60, 20));
+				player.sendMessage("§l[Drugs]§r §a§lLucky !§r Gave you §c§lHealth Boost IV§r for §b30 seconds§r.");
 			}
 			
 			if (randint == 3) {
 				player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,600 ,3));
-				player.sendMessage("§l[Drugs]§r §a§lLucky !§r Gave you §d§lRegeneration VI§r for §b30 seconds§r.");
+				player.sendMessage("§l[Drugs]§r §a§lLucky !§r Gave you §d§lRegeneration IV§r for §b30 seconds§r.");
 			}
         }
     }
