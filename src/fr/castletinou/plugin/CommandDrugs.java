@@ -36,11 +36,6 @@ public class CommandDrugs implements CommandExecutor {
 				player.updateInventory();
 			}
 
-
-			if (a == b && b == c) {
-				
-				System.out.println(Tg);
-			}
 			
 			if (args[0].equalsIgnoreCase("LuckyDrug")) {
 				ItemStack custompotion = new ItemStack(Material.POTION, 1);
