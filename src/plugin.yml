@@ -1,10 +1,11 @@
 name: Drugs
+autor: castletinou & PrototypeS1
 main: fr.castletinou.plugin.Main
 version: 1.0
 commands:
   drugs:
-    description: Give potion custom
+    description: Give custom potion
     permission: drugs.use
     permission-message: You do not have permission :/
     usage: §4/drugs <drugsName>
-    aliases: drug
+    aliases: dr
