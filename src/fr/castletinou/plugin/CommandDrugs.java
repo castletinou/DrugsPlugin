@@ -9,8 +9,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.Potion;
+import org.bukkit.potion.PotionType;
 
 public class CommandDrugs implements CommandExecutor {
 
@@ -21,80 +24,64 @@ public class CommandDrugs implements CommandExecutor {
 			Player player = (Player) sender;
 			if (args.length < 1) return false;
 			
-			if (args[0].equalsIgnoreCase("MIH")) {
-				
-				player.getInventory().addItem(getItem(Material.POTION, "§9§kI§r§d§l MIH §r§9§kI", "", "This potion give you §bSpeed V during §a30 seconds"));
-
-				player.updateInventory();
-			}
-			if (args[0].equalsIgnoreCase("sankukai")) {
-
-				player.getInventory().addItem(getItem(Material.POTION, "§3§lSan Ku Kaï", "", "This potion give you §cStrength III during §a15 seconds"));;
-
-				player.updateInventory();
-			}		
-			if (args[0].equalsIgnoreCase("berseker")) {
-				
-				player.getInventory().addItem(getItem(Material.POTION, "§c§ki§4§ki§r§4§l Berseker §4§ki§c§ki", "", "This potion give you a soul of viking"));;
-				
-				player.updateInventory();
-			}
-			if (args[0].equalsIgnoreCase("LuckyDrug")) {
-				
-				player.getInventory().addItem(getItem(Material.POTION, "§e§lLucky Drug", "", "This potion give you a §aBonus §5or a §4Malus §5during §a30 seconds"));;
-				
-				player.updateInventory();
-			}
-			
-
-			if (args[0].equalsIgnoreCase("prestinox")) {
-
-				player.getInventory().addItem(getItem(Material.POTION, "§2§lPrestinox", "", "This potion give you §cStrength II, §bSpeedIII and §ahasteII §dduring 30 second"));;
-
-				player.updateInventory();
-			}
-			if (args[0].equalsIgnoreCase("trambolone")) {
-
-				player.getInventory().addItem(getItem(Material.POTION, "§b§lTrambolone", "", "This potion give you §aJump10 §rbe careful !"));;
-
-				player.updateInventory();
-			}
-			if (args[0].equalsIgnoreCase("misterfreeze")) {
-
-				player.getInventory().addItem(getItem(Material.POTION, "§9§kI§b§kI§r§9§l Mister Freeze §9§kI§b§kI", "", "This potion give you §9Freeze V but you're very resistant !"));;
-
-				player.updateInventory();
-			}
-			
 			if (args[0].equalsIgnoreCase("admin")) {
 				
-				Inventory inv = Bukkit.createInventory(null, 9, "§8Drugs Menu");				
+				Inventory inv = Bukkit.createInventory(null, 18, "§8Drugs Menu");				
 				
-				inv.setItem(0, getItem(Material.POTION, "§3§lSan Ku Kaï", "", "This potion give you §cStrength III during §a15 seconds"));
-				inv.setItem(1, getItem(Material.POTION, "§9§kI§r§d§l MIH §r§9§kI", "", "This potion give you §bSpeed V during §a30 seconds"));
-				inv.setItem(2, getItem(Material.POTION, "§2§lPrestinox", "", "This potion give you §cStrength II, §bSpeedIII and §ahasteII §dduring 30 second"));
-				inv.setItem(3, getItem(Material.POTION, "§e§lLucky Drug", "", "This potion give you a §aBonus §5or a §4Malus §5during §a30 seconds"));
-				inv.setItem(4, getItem(Material.POTION, "§b§lTrambolone", "", "This potion give you §aJump 20 §5during §a5 seconds §5be careful !"));
-				inv.setItem(5, getItem(Material.POTION, "§9§kI§b§kI§r§9§l Mister Freeze §9§kI§b§kI", "", "This potion give you §9Freeze V §5but you're very §8resistant !"));
-				inv.setItem(6, getItem(Material.POTION, "three chance", "", "3"));
+				inv.setItem(0, createPotion(Material.POTION, "§3§lSan Ku Kaï", "", "§7This potion give you §c§lStrength III§7 during §a§l15 seconds","§6Legendary", PotionType.STRENGTH));
+				inv.setItem(1, createPotion(Material.POTION, "§9§kI§r§d§l MIH §r§9§kI", "", "§7This potion give you §b§lSpeed V§7 during §a§l30 seconds","§5Epic", PotionType.SPEED));
+				inv.setItem(2, createPotion(Material.POTION, "§2§lPrestinox", "", "§7This potion give you §c§lStrength II§7, §b§lSpeed III§7 and §a§lHaste II§7 during §d§l30 seconds","§6Legendary", PotionType.REGEN));
+				inv.setItem(3, createPotion(Material.POTION, "§e§lLucky Drug", "", "§7This potion give you a §a§lBonus§7 or a §4§lMalus§7 during §a§l30 seconds","§9Rare", PotionType.WEAKNESS));
+				inv.setItem(4, createPotion(Material.POTION, "§b§lTrambolone", "", "§7This potion give you §aJump 20 §7during §a5 seconds §7be careful !","§9Rare", PotionType.JUMP));
+				inv.setItem(5, createPotion(Material.POTION, "§9§kI§b§kI§r§9§l Mister Freeze §9§kI§b§kI", "", "§7This potion give you §9Freeze V §7but you're very §8resistant !", "§9Rare", PotionType.WATER));
+				inv.setItem(6, createPotion(Material.POTION, "§c§ki§4§ki§r§4§l Berseker §4§ki§c§ki", "", "§7This potion give you a §5soul §7of §4viking","§5Epic", PotionType.STRENGTH));
+				inv.setItem(7, createSplashPotion(Material.POTION,"§6§lBusu§r §aCommon", "§rThis potion stun all the entities in", "§rits effect area for §c§l2 seconds§r.", "§aCommon", PotionType.SLOWNESS));
+				inv.setItem(8, createSplashPotion(Material.POTION,"§6§lBusu§r §9Rare", "§rThis potion stun all the entities in", "§rits area of effect for §c§l5 seconds§r.", "§9Rare", PotionType.SLOWNESS));
+				inv.setItem(9, createSplashPotion(Material.POTION,"§b§lBleacher", "§rThis potion §c§lclear the potions effects", "§rof any entities in its area of effect.", "§9Rare", PotionType.INVISIBILITY));
+				inv.setItem(10, createSplashPotion(Material.POTION,"§2§lRotten Heal", "§rThis potion gives §2§ldebuffs", "§rto all entities in its area of effect.", "§5Epic", PotionType.POISON));
+				inv.setItem(11, createPotion(Material.POTION,"§3§lSapho Juice", "§rThis potion give §b§lSpeed III§r  but also", "§r§7§lWeakness VI§r and §6§lMining Fatigue III§r.", "§aCommon", PotionType.SPEED));
+				inv.setItem(12, createPotion(Material.POTION,"§a§lPlomik Soup", "§rThis potion give §a§lJump Boost XXX§r for a short time","§rbut also §2§lNausea III§r and §8§lBlindness III§r.", "§aCommon", PotionType.JUMP));
+				inv.setItem(13, createSplashPotion(Material.POTION,"§d§lDouble Heal", "§rThis potion act as a Splash Potion of Healing", "§rbut heals §c§l10 hearts§r.", "§aCommon", PotionType.INSTANT_HEAL));
+				inv.setItem(14, createPotion(Material.POTION,"§6§lDivine Nectar", "§rThis Nectar will §c§linstantly regenerate§r your §6§lFood Bar", "§rand gives §d§lRegeneration I§r during 1 minute.", "§aCommon", PotionType.INSTANT_HEAL));
+				inv.setItem(15, createPotion(Material.POTION,"§f§lPale Potion", "§rThis potion will give you §7§lInvisibility II§r §c§lfor 30 minutes§r,", "§rhowever you'll also have §8§lSlowness I§r.", "§9Rare", PotionType.INVISIBILITY));
+				inv.setItem(16, createPotion(Material.POTION,"§6§lSandy's Nap Time", "§rThis potion make you sleep well.", "§rDuring §c§l10 seconds§r, you are §c§linvincible§r but you §c§lcan't moove§r.", "§5Epic", PotionType.NIGHT_VISION));
 				
 				player.openInventory(inv);
 			}
-
+			
 			return true;
 		}
 
 		return false;
 	}
 	
-	public ItemStack getItem(Material material, String customName, String customLore, String customLore2) {
-		ItemStack it = new ItemStack(material, 1);
-		ItemMeta itM = it.getItemMeta();
-		itM.setDisplayName(customName);
-		itM.setLore(Arrays.asList(customLore, customLore2));
-		it.setItemMeta(itM);
-		return it;
-	}
-	
+    public ItemStack createSplashPotion(Material material, String customName, String customLore, String customLore2, String customLore3, PotionType potType) {
+        Potion potion = new Potion(1);
+        potion.setSplash(true);
+        potion.setLevel(1);
+        potion.setType(potType);
+        ItemStack it = new ItemStack(material, 1);
+        potion.apply(it);
+        ItemMeta itM = it.getItemMeta();
+        itM.setDisplayName(customName);
+        itM.setLore(Arrays.asList(customLore, customLore2,customLore3));
+        itM.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        itM.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        it.setItemMeta(itM);
+        return it;
+    }
+    public ItemStack createPotion(Material material, String customName, String customLore, String customLore2, String customLore3, PotionType potType) {
+        Potion potion = new Potion(1);
+        potion.setType(potType);
+        ItemStack it = new ItemStack(material, 1);
+        potion.apply(it);
+        ItemMeta itM = it.getItemMeta();
+        itM.setDisplayName(customName);
+        itM.setLore(Arrays.asList(customLore, customLore2,customLore3));
+        itM.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        itM.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        it.setItemMeta(itM);
+        return it;
+    }
 	
 }
